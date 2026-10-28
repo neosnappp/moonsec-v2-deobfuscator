@@ -1,3 +1,5 @@
+# thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
+
 import sys
 import os
 import re
@@ -1180,7 +1182,7 @@ def rkey(x, name):
     if f.k != 'idx' or f.a[0].k != 'id' or f.a[0].a[0] != name:
         return None
     return f.a[1]
-
+# thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
 
 def head(ast, rd, name):
     for f in walk(ast):
@@ -1643,7 +1645,7 @@ class Sch:
         nump = 1
         while stk:
             self.dc.tick()
-            pro, env, idx = stk.pop()
+            pro, env, idx = stk.pop() # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
             if idx >= len(self.acts):
                 continue
             k, n, q = self.acts[idx]
@@ -2366,7 +2368,7 @@ class Fx:
         self.env[hp.ins] = pro['i'].get(1)
         if self.npar is None:
             bad('prototype parameter count binding absent')
-
+# ty to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
     def tick(self):
         self.stp += 1
         if self.stp > self.lim:
@@ -3268,7 +3270,7 @@ class Fx:
                     tr = ('ret', rep(tr[1]))
                 out.append((z8, tr))
             self.gph[pc] = out
-
+# thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
 
 class Cf:
     def __init__(self, fx):
@@ -5406,7 +5408,7 @@ class Cp:
                     chil.extend(body for c, body in z.a[0])
                     chil.append(z.a[1])
                 elif z.k == 'for':
-                    expr.extend(z.a[1])
+                    expr.extend(z.a[1]) # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
                     chil.append(z.a[2])
                 elif z.k == 'wh':
                     expr.append(z.a[0])
@@ -5414,7 +5416,7 @@ class Cp:
                 elif z.k in ('stmt', 'ret'):
                     expr.extend(z.a[0] if z.k == 'ret' else [z.a[0]])
                 rea0 = []
-                stk = list(expr)
+                stk = list(expr) # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
                 while stk:
                     q = stk.pop()
                     if isinstance(q, list):
@@ -5957,7 +5959,7 @@ def back(ast):
             elif q.k in ('break', 'continue'):
                 live = set(alls)
             elif q.k in ('set', 'loc'):
-                lhs, rhs = q.a[:2]
+                lhs, rhs = q.a[:2] # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
                 rec = rn.ref.get(id(lhs[0])) if len(lhs) == 1 and lhs[0].k == 'id' else None
                 if q.k == 'set' and q.a[2] == '=' and rec is not None and id(rec) not in live and id(rec) not in caps and len(rhs) == 1:
                     val0 = ung(rhs[0])
@@ -5982,7 +5984,7 @@ def back(ast):
         return 0
     for q in nds:
         if q.k == 'if':
-            bs.extend(rows for c, rows in q.a[0])
+            bs.extend(rows for c, rows in q.a[0]) # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
             bs.append(q.a[1])
         elif q.k in ('do', 'wh', 'rep', 'for', 'iter'):
             bs.append(q.a[2] if q.k in ('for', 'iter') else q.a[1] if q.k == 'wh' else q.a[0])
@@ -6007,12 +6009,12 @@ def box(ast):
         if q.k == 'fn':
             bs.append(q.a[1])
         elif q.k == 'if':
-            bs.extend(rows for c, rows in q.a[0])
+            bs.extend(rows for c, rows in q.a[0]) # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
             bs.append(q.a[1])
-        elif q.k in ('for', 'iter'):
+        elif q.k in ('for', 'iter'): # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
             bs.append(q.a[2])
         elif q.k in ('wh', 'rep', 'do'):
-            bs.append(q.a[1] if q.k == 'wh' else q.a[0])
+            bs.append(q.a[1] if q.k == 'wh' else q.a[0]) # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
         if q.k not in ('loc', 'set'):
             continue
         for n in q.a[0]:
@@ -6254,8 +6256,8 @@ def flow(ast):
                 return N('bin', ['~=' if sub.a[0] == '==' else '==', sub.a[1], sub.a[2]])
             else:
                 break
-        return q
-
+        return q # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
+# thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
     cnt = 0
     for q in reversed(nds):
         if q.k == 'if':
@@ -6397,11 +6399,11 @@ def tidy(ast):
                 stk.extend(q)
     for bs in reversed(bods):
         out = []
-        for z in bs:
+        for z in bs: # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
             if id(z) in gone or z.k == 'do' and not z.a[0]:
                 continue
-            if z.k == 'if':
-                arms, tail = z.a
+            if z.k == 'if': # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
+                arms, tail = z.a # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
                 if not tail and all(not rows and pure(cond) for cond, rows in arms):
                     continue
                 if len(arms) == 1 and not arms[0][1] and tail:
@@ -6411,8 +6413,8 @@ def tidy(ast):
 
     fuse(ast)
     flow(ast)
-
-
+# thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
+# thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
 class Rn:
     def __init__(self, ast):
         self.sc = [{}]
@@ -6427,13 +6429,13 @@ class Rn:
         self.stp = 0
         self.run(ast)
         self.name()
-
+# thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
     def bind(self, n, kind):
         rec = {'src': n.a[0], 'kind': kind, 'refs': [n], 'hint': set(), 'base': set(), 'defs': []}
         self.sy.append(rec)
         self.sc[-1][n.a[0]] = rec
         self.ref[id(n)] = rec
-
+# thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
     def look(self, n):
         key = n.a[0]
         if key.startswith('\0'):
@@ -6445,7 +6447,7 @@ class Rn:
                 self.ref[id(n)] = rec
                 return
         self.glob.add(key)
-
+# thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
     def run(self, ast):
         stk = [('bs', ast, False)]
         while stk:
@@ -6570,7 +6572,7 @@ class Rn:
             return None
         text = text.lower()
         return text if text not in Prs([]).kw else None
-
+# thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
     def root(self, q):
         seen = set()
         while True:
@@ -6750,7 +6752,7 @@ class Em:
                 return self.nms.get(id(x), a[0])
             if k in ('str', 'num', 'key'):
                 return a[0]
-            if k == 'interp':
+            if k == 'interp': # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
                 return ''.join(self.ex(q, dep) if isinstance(q, N) else q for q in a[0])
             if k in ('nil', 'true', 'false', '...'):
                 return k
@@ -6919,7 +6921,7 @@ def caps(ast):
             if idx is None:
                 return False
             rec = rn.ref.get(id(par.a[0][idx]))
-            if rec is None:
+            if rec is None: # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
                 return False
             if id(rec) not in bind:
                 bind.add(id(rec))
@@ -6946,9 +6948,9 @@ def chk(src):
         if prs.cur().k != 'eof':
             bad('trailing tokens at line ' + str(prs.cur().ln))
     except Err as e:
-        m = re.search(r'line ([0-9]+)', str(e))
+        m = re.search(r'line ([0-9]+)', str(e)) # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
         bad('output syntax error at line ' + (m[1] if m else '1'))
-    if not caps(ast):
+    if not caps(ast): # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
         bad('output contains non-roblox construct')
     if scan(ast)[1]:
         bad('output contains residual dispatcher loop')
@@ -7327,7 +7329,7 @@ def tamp(src):
                     break
                 if z.k == 'lfn':
                     continue
-                for x in z.a[1]:
+                for x in z.a[1]: # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
                     x = ung(x)
                     if x.k != 'bin' or x.a[0] != 'or' or val(x)[0]:
                         continue
@@ -7717,7 +7719,7 @@ def peel(src, edts=None):
                 if any(z.k == 'wh' for z in walk(body)):
                     bad('handler dispatch predicate unresolved for opcode ' + num(op))
             fn = bld(ast, hp, sc, pro)
-            cp = Cp(fn, seed(ast))
+            cp = Cp(fn, seed(ast)) # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
             opt(fn)
             cp.clea(fn)
             opt(fn)
@@ -7738,16 +7740,16 @@ def peel(src, edts=None):
         if Em(src, rn.map).bs(ast) == prev:
             bad('nothing actionable in sample')
     return ast
+# thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
 
-
-if __name__ == '__main__':
+if __name__ == '__main__': # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
     try:
         run()
     except Err as e:
         print('[] failed. ' + str(e).lower().rstrip('.') + '.')
         sys.exit(1)
     except RecursionError:
-        print('[] failed. recursion depth exceeded.')
+        print('[] failed. recursion depth exceeded.') # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
         sys.exit(1)
     except MemoryError:
         print('[] failed. memory limit exceeded.')
@@ -7755,3 +7757,12 @@ if __name__ == '__main__':
     except Exception as e:
         print('[] failed. internal ' + type(e).__name__.lower() + '.')
         sys.exit(1)
+        # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
+        # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
+        # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
+        # thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
+
+# thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
+# thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
+
+# thanks to arena.ai for making this file , join discord https://discord.gg/sntxuZtdV4
